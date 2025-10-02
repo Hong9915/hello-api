@@ -10,7 +10,7 @@
 	•	Build Tool: Gradle
 	•	Main Endpoint: /hello
 
-# 1. 로컬 실행
+# 로컬 실행
 
 ```
 ./gradlew bootRun
@@ -20,4 +20,20 @@
 ```
 ./gradlew clean bootJar
 java -jar build/libs/hello-api-0.0.1-SNAPSHOT.jar
+```
+
+# 파일 업로드
+```
+scp -i <key.pem> app.jar start.sh ubuntu@<EC2_IP>:/home/ubuntu/
+```
+
+# 원격 실행
+```
+ssh -i <key.pem> ubuntu@<EC2_IP> "cd /home/ubuntu && chmod +x start.sh && ./start.sh"
+```
+
+# 원격 종료
+
+```
+ssh -i <key.pem> ubuntu@<EC2_IP> "cd /home/ubuntu && chmod +x stop.sh && ./stop.sh"
 ```
