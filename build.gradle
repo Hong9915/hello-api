@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'io.github.hyungjunehong'
-version = '0.1.2'
+version = '1.0.0'
 description = 'Demo project for Spring Boot'
 
 java {
@@ -40,4 +40,12 @@ dependencies {
 
 tasks.named('test') {
 	useJUnitPlatform()
+}
+
+tasks.named('jar') {
+    enabled = false
+}
+
+tasks.named('bootJar') {
+    enabled = true
 }
