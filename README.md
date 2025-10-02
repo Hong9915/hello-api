@@ -37,3 +37,18 @@ ssh -i <key.pem> ubuntu@<EC2_IP> "cd /home/ubuntu && chmod +x start.sh && ./star
 ```
 ssh -i <key.pem> ubuntu@<EC2_IP> "cd /home/ubuntu && chmod +x stop.sh && ./stop.sh"
 ```
+
+
+# 도커화
+
+# 도커 빌드
+```
+./gradlew clean bootJar
+docker buildx build --platform linux/amd64 -t hyungjune03/hello-api:1.0 --load .
+```
+# 도커 실행 및 테스트
+```
+docker run -d --name hello-api -p 8080:8080 hyungjune03/hello-api:1.0
+
+curl http://localhost:8080/hello
+```
